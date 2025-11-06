@@ -7,7 +7,7 @@ interface HowItWorksSpotlightCardProps {
   title: string;
   description: string;
   icon: ReactNode;
-  spotlightColor?: string;
+  spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`;
 }
 
 export default function HowItWorksSpotlightCard({
