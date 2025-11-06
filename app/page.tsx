@@ -92,10 +92,18 @@ const Home = () => {
         <p className="text-gray-600 dark:text-gray-300 mb-6">
           Be the first to know when new features drop.
         </p>
-        <form className="flex justify-center max-w-md mx-auto">
+        <form 
+          className="flex justify-center max-w-md mx-auto"
+          onSubmit={(e) => {
+            e.preventDefault();
+            // TODO: Implement newsletter signup logic
+            console.log('Newsletter signup submitted');
+          }}
+        >
           <input
             type="email"
             placeholder="Enter your email"
+            required
             className="px-4 py-2 w-64 rounded-l-md bg-white dark:bg-slate-700 text-slate-900 dark:text-white border border-sky-200 dark:border-slate-600 focus:outline-none"
           />
           <button
