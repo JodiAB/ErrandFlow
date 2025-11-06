@@ -37,6 +37,7 @@ const NavBar = () => {
              <ul className="flex flex-row items-center gap-6">
           <li>
             <button
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 rounded-md hover:bg-muted transition"
             >
