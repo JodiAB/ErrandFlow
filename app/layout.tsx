@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Schibsted_Grotesk, Martian_Mono } from "next/font/google";
 
-import "./globals.css"
+import "./globals.css";
 import LightRays from "@/components/LightRays";
 import NavBar from "@/components/Navbar";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const schibstedGrotesk = Schibsted_Grotesk({
   variable: "--font-schibsted-grotesk",
@@ -26,30 +27,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-       className={`${schibstedGrotesk.variable} ${martianMono.variable} min-h-screen antialiased`}
+        className={`${schibstedGrotesk.variable} ${martianMono.variable} min-h-screen antialiased`}
       >
+        <ThemeProvider>
+          <NavBar />
 
-<NavBar />
-        <div className="absolute inset-0 top-0 z-[-1] min-h-screen">
-  <LightRays
-    raysOrigin="top-center-offset"
-    raysColor="#00ffff"
-    raysSpeed={1.5}
-    lightSpread={0.9}
-    rayLength={1.2}
-    followMouse={true}
-    mouseInfluence={0.1}
-    noiseAmount={0.0}
-    distortion={0.01}
-    className="custom-rays"
-  />
-        </div>
-<main>
+          <div className="absolute inset-0 top-0 z-[-1] min-h-screen">
+            <LightRays
+              raysOrigin="top-center-offset"
+              raysColor="#00ffff"
+              raysSpeed={1.5}
+              lightSpread={0.9}
+              rayLength={1.2}
+              followMouse={true}
+              mouseInfluence={0.1}
+              noiseAmount={0.0}
+              distortion={0.01}
+              className="custom-rays"
+            />
+          </div>
 
-        {children}
-</main>
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
